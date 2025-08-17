@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VinShik Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/lucide@latest"></script> <!-- for icons -->
-</head>
-<body>
-  <div class="dashboard">
-    
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">
-        <span class="vin">Vin</span><span class="shik">Shik</span>
-      </div>
-      <nav>
-        <a href="#" class="active"><i data-lucide="home"></i> Home</a>
-        <a href="#"><i data-lucide="calendar"></i> Calendar</a>
-        <a href="#"><i data-lucide="map-pin"></i> Map</a>
-        <a href="#"><i data-lucide="users"></i> Clients</a>
-        <a href="#"><i data-lucide="briefcase"></i> Jobs</a>
-        <a href="#"><i data-lucide="file-text"></i> Quotes</a>
-        <a href="#"><i data-lucide="layers"></i> My Services</a>
-      </nav>
-    </aside>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinShik Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script> <!-- for icons -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> <!-- for charts -->
+</head>
+
+<body>
+    <div class="dashboard">
+
+<<<<<<< HEAD
     <!-- Main Content -->
     <main class="main">
       <!-- Topbar -->
@@ -50,33 +38,128 @@
         <h2>Welcome back, Julie 👋</h2>
         <p>Here’s what you need to focus on today.</p>
       </div>
+=======
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="vin">Vin</span><span class="shik">Shik</span>
+            </div>
+            <nav>
+                <a href="#" class="active"><i data-lucide="home"></i> Home</a>
+                <a href="#"><i data-lucide="calendar"></i> Calendar</a>
+                <a href="#"><i data-lucide="map-pin"></i> Map</a>
+                <a href="#"><i data-lucide="users"></i> Clients</a>
+                <a href="#"><i data-lucide="briefcase"></i> Jobs</a>
+                <a href="#"><i data-lucide="file-text"></i> Quotes</a>
+                <a href="#"><i data-lucide="layers"></i> My Services</a>
+            </nav>
+        </aside>
+>>>>>>> d72e67762c01a17edc49203862bb27845aee975f
 
-      <!-- Dashboard Cards -->
-      <section class="cards">
-        <div class="card blue">
-          <p>Active Jobs</p>
-          <h3>43.7k</h3>
-          <span class="trend up">+12.2%</span>
-        </div>
-        <div class="card orange">
-          <p>Jobs In Progress</p>
-          <h3>92.3k</h3>
-          <span class="trend down">-31.1%</span>
-        </div>
-        <div class="card green">
-          <p>Finished Jobs</p>
-          <h3>66.3k</h3>
-          <span class="trend up">+3.3%</span>
-        </div>
-        <div class="card purple">
-          <p>New Leads</p>
-          <h3>92.3k</h3>
-          <span class="trend up">+31.1%</span>
-        </div>
-      </section>
-    </main>
-  </div>
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="actions">
+                    <i data-lucide="mail"></i>
+                    <i data-lucide="settings"></i>
+                    <img src="https://i.pravatar.cc/40" alt="profile" class="profile">
+                </div>
+            </header>
 
+            <hr class="divider">
+
+            <!-- Welcome Section -->
+            <div class="welcome">
+                <h2>Welcome back, Julie 👋</h2>
+                <p>Here’s what you need to focus on today</p>
+            </div>
+
+            <!-- Dashboard Cards -->
+            <div class="cards">
+
+                <div class="card blue">
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="users"></i></div>
+                        <p>Total Users</p>
+                        <h3>1,250</h3>
+                        <span class="trend up"><i data-lucide="trending-up"></i> +12%</span>
+                    </div>
+                    <div class="card-chart" id="chart-users"></div>
+                </div>
+
+                <div class="card orange">
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="shopping-cart"></i></div>
+                        <p>Orders Today</p>
+                        <h3>320</h3>
+                        <span class="trend down"><i data-lucide="trending-down"></i> -5%</span>
+                    </div>
+                    <div class="card-chart" id="chart-orders"></div>
+                </div>
+
+                <div class="card green">
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="dollar-sign"></i></div>
+                        <p>Revenue</p>
+                        <h3>$8,450</h3>
+                        <span class="trend up"><i data-lucide="trending-up"></i> +8%</span>
+                    </div>
+                    <div class="card-chart" id="chart-revenue"></div>
+                </div>
+
+                <div class="card purple">
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="activity"></i></div>
+                        <p>Active Sessions</p>
+                        <h3>560</h3>
+                        <span class="trend up"><i data-lucide="trending-up"></i> +3%</span>
+                    </div>
+                    <div class="card-chart" id="chart-sessions"></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons(); // icons
+    </script>
+    <script>
+        // Users
+        new ApexCharts(document.querySelector("#chart-users"), {
+            chart: { type: 'line', sparkline: { enabled: true } },
+            stroke: { width: 2 },
+            colors: ['#2196f3'],
+            series: [{ data: [5, 10, 8, 15, 20, 18, 25] }],
+        }).render();
+
+        // Orders
+        new ApexCharts(document.querySelector("#chart-orders"), {
+            chart: { type: 'bar', sparkline: { enabled: true } },
+            plotOptions: { bar: { columnWidth: '70%' } },
+            colors: ['#ff9800'],
+            series: [{ data: [30, 25, 35, 20, 15, 25, 30] }],
+        }).render();
+
+        // Revenue
+        new ApexCharts(document.querySelector("#chart-revenue"), {
+            chart: { type: 'area', sparkline: { enabled: true } },
+            stroke: { width: 2 },
+            colors: ['#4caf50'],
+            series: [{ data: [10, 15, 8, 20, 25, 18, 30] }],
+        }).render();
+
+        // Sessions
+        new ApexCharts(document.querySelector("#chart-sessions"), {
+            chart: { type: 'line', sparkline: { enabled: true } },
+            stroke: { width: 2, curve: 'smooth' },
+            colors: ['#9c27b0'],
+            series: [{ data: [50, 55, 53, 58, 60, 62, 65] }],
+        }).render();
+    </script>
+
+<<<<<<< HEAD
   <script src="script.js"></script>
   <script>
     lucide.createIcons(); // icons
@@ -84,3 +167,8 @@
 </body>
 </html>
 
+=======
+</body>
+
+</html>
+>>>>>>> d72e67762c01a17edc49203862bb27845aee975f
