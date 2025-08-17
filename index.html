@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VinShik Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script> <!-- for icons -->
+</head>
+<body>
+  <div class="dashboard">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="vin">Vin</span><span class="shik">Shik</span>
+      </div>
+      <nav>
+        <a href="#" class="active"><i data-lucide="home"></i> Home</a>
+        <a href="#"><i data-lucide="calendar"></i> Calendar</a>
+        <a href="#"><i data-lucide="map-pin"></i> Map</a>
+        <a href="#"><i data-lucide="users"></i> Clients</a>
+        <a href="#"><i data-lucide="briefcase"></i> Jobs</a>
+        <a href="#"><i data-lucide="file-text"></i> Quotes</a>
+        <a href="#"><i data-lucide="layers"></i> My Services</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h2>Welcome back, Julie 👋</h2>
+        <p>Here’s what you need to focus on today</p>
+        <div class="actions">
+          <i data-lucide="mail"></i>
+          <i data-lucide="settings"></i>
+          <img src="https://i.pravatar.cc/40" alt="profile" class="profile">
+        </div>
+      </header>
+
+      <!-- Dashboard Cards -->
+      <section class="cards">
+        <div class="card blue">
+          <p>Active Jobs</p>
+          <h3>43.7k</h3>
+          <span class="trend up">+12.2%</span>
+        </div>
+        <div class="card orange">
+          <p>Jobs In Progress</p>
+          <h3>92.3k</h3>
+          <span class="trend down">-31.1%</span>
+        </div>
+        <div class="card green">
+          <p>Finished Jobs</p>
+          <h3>66.3k</h3>
+          <span class="trend up">+3.3%</span>
+        </div>
+        <div class="card purple">
+          <p>New Leads</p>
+          <h3>92.3k</h3>
+          <span class="trend up">+31.1%</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons(); // initialize icons
+  </script>
+</body>
+</html>
