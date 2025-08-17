@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,13 +9,22 @@ body {
   background: #f9f9f9;
   color: #333;
 }
-
 .dashboard {
-  display: flex;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr; 
+  grid-template-rows: 100vh;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  overflow: hidden;
 }
-
-/* Sidebar */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 40px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
 .sidebar {
   width: 220px;
   background: #fff;
@@ -53,7 +61,8 @@ body {
   transition: 0.3s;
 }
 
-.sidebar nav a:hover {
+.sidebar nav a:hover,
+.sidebar nav a.active {
   background: #e9f3ff;
   color: #2196f3;
 }
@@ -122,19 +131,19 @@ body {
   color: #777;
 }
 
-/* Right side (Actions) */
 .actions {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 5px; /* adjust to align nicely with h2 */
+  gap: 20px;
 }
 
 .actions i {
   cursor: pointer;
-  color: #444;
-  width: 22px;
-  height: 22px;
+  transition: transform 0.2s;
+}
+
+.actions i:hover {
+  transform: scale(1.2);
 }
 
 .profile {
@@ -144,39 +153,36 @@ body {
   object-fit: cover;
 }
 
-
-
-/* Cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
 .card {
   background: #fff;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
 .card p {
   font-size: 14px;
   margin-bottom: 10px;
   color: #555;
 }
-
 .card h3 {
   font-size: 22px;
   margin-bottom: 8px;
 }
-
 .trend {
   font-size: 13px;
   font-weight: 600;
 }
-
 .trend.up { color: green; }
 .trend.down { color: red; }
 
@@ -185,13 +191,14 @@ body {
 .card.green { border-left: 4px solid #4caf50; }
 .card.purple { border-left: 4px solid #9c27b0; }
 
-
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 60px;
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
   }
-  .sidebar nav a span {
-    display: none; /* hide text, keep icons */
+
+  .main {
+    padding: 20px;
   }
 }
