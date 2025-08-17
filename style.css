@@ -8,6 +8,7 @@
 body {
     background: #f9f9f9;
     color: #333;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f3f7fa 100%);
 }
 
 /* Dashboard Grid Layout */
@@ -182,9 +183,8 @@ body {
 }
 
 .card-chart {
-    width: 100px;
-    /* small sparkline size */
-    height: 60px;
+    width: 120px;
+    height: 70px;
 }
 
 
