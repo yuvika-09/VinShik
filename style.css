@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +10,14 @@ body {
   color: #333;
 }
 
+/* Dashboard Grid Layout */
 .dashboard {
-  display: flex;
+  display: grid;
+  grid-template-columns: 220px 1fr; 
   min-height: 100vh;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 /* Sidebar */
@@ -25,7 +29,7 @@ body {
 }
 
 .logo {
-  font-size: 37px;
+  font-size: 32px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
@@ -59,27 +63,35 @@ body {
   color: #2196f3;
 }
 
+.sidebar nav a.active {
+  background: #fff;
+  border: 1px solid #2196f3;
+  font-weight: 600;
+}
+
+.sidebar nav a i {
+  stroke-width: 1.8;
+  color: #777;
+}
+.sidebar nav a.active i {
+  color: #2196f3;
+}
+
 /* Main Section */
 .main {
-  flex: 1;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  gap: 25px; /* consistent spacing between blocks */
+  overflow-y: auto;
+  transition: all 0.3s ease;
 }
 
 /* Topbar */
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  margin-bottom: 30px;
-}
-
-.topbar h2 {
-  font-size: 20px;
-}
-
-.topbar p {
-  font-size: 14px;
-  color: #777;
 }
 
 .actions {
@@ -90,12 +102,48 @@ body {
 
 .actions i {
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.actions i:hover {
+  transform: scale(1.2);
 }
 
 .profile {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  object-fit: cover;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0 0 15px 0;
+}
+
+@media (max-width: 768px) {
+  .divider {
+    display: none;
+  }
+}
+
+/* Welcome Section */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.welcome h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.welcome p {
+  font-size: 14px;
+  color: #777;
 }
 
 /* Cards */
@@ -111,6 +159,12 @@ body {
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 .card p {
@@ -130,9 +184,26 @@ body {
 }
 
 .trend.up { color: green; }
-.trend.down { color: red; }
+.trend.down { color: rgb(247, 6, 6); }
 
 .card.blue { border-left: 4px solid #2196f3; }
 .card.orange { border-left: 4px solid #ff9800; }
 .card.green { border-left: 4px solid #4caf50; }
 .card.purple { border-left: 4px solid #9c27b0; }
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+  .main {
+    padding: 19.5px;
+  }
+}
