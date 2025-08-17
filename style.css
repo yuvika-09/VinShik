@@ -1,138 +1,138 @@
-/* Reset */
+/* Reset & Fonts */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: #f9f9f9;
-  color: #333;
+    background-color: #f8f9fa;
 }
 
+/* Dashboard Layout */
 .dashboard {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
-  background: #fff;
-  border-right: 1px solid #eee;
-  padding: 20px 0;
+    width: 220px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    padding: 20px;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 30px;
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #007c91;
+    margin-bottom: 40px;
 }
 
-.logo .vin { color: #2196f3; }
-.logo .shik { color: #001; }
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding-left: 20px;
+.sidebar nav ul {
+    list-style: none;
 }
 
-.sidebar nav a {
-  text-decoration: none;
-  color: #444;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: 0.3s;
+.sidebar nav ul li {
+    padding: 12px 0;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
 }
 
-.sidebar nav a:hover,
-.sidebar nav a.active {
-  background: #e9f3ff;
-  color: #2196f3;
+.sidebar nav ul li.active {
+    color: #007c91;
+    font-weight: 700;
 }
 
-/* Main Section */
-.main {
-  flex: 1;
-  padding: 30px;
+/* Main content */
+.main-content {
+    flex: 1;
+    padding: 30px;
 }
 
-/* Topbar */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.topbar h2 {
-  font-size: 20px;
+.welcome h1 {
+    font-size: 24px;
+    font-weight: 700;
 }
 
-.topbar p {
-  font-size: 14px;
-  color: #777;
+.welcome p {
+    color: #666;
+    margin-top: 5px;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.actions i {
-  cursor: pointer;
+.user-actions .icon {
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.profile {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+.user-actions .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-/* Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+/* Stats Cards */
+.stats {
+    display: flex;
+    gap: 20px;
 }
 
 .card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: relative;
+    background-color: #fff;
+    padding: 20px;
+    flex: 1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.card p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #555;
+.card .title {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
 }
 
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
+.card .percent {
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.trend {
-  font-size: 13px;
-  font-weight: 600;
+.percent.green { color: #28a745; }
+.percent.red { color: #dc3545; }
+
+.card .number {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.trend.up { color: green; }
-.trend.down { color: red; }
+.card .chart {
+    height: 40px;
+    border-radius: 6px;
+    background: #eee;
+}
 
-.card.blue { border-left: 4px solid #2196f3; }
-.card.orange { border-left: 4px solid #ff9800; }
-.card.green { border-left: 4px solid #4caf50; }
-.card.purple { border-left: 4px solid #9c27b0; }
+/* Chart colors */
+.chart.blue { background-color: #4a90e2; }
+.chart.orange { background-color: #f5a623; }
+.chart.green { background-color: #28a745; }
+.chart.purple { background-color: #9b59b6; }
