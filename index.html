@@ -82,7 +82,7 @@
                     <div class="card-content">
                         <div class="card-icon"><i data-lucide="users"></i></div>
                         <p>Total Users</p>
-                        <h3>1,250</h3>
+                        <h3 id="total-users">0</h3>
                         <span class="trend up"><i data-lucide="trending-up"></i> +12%</span>
                     </div>
                     <div class="card-chart" id="chart-users"></div>
@@ -92,7 +92,7 @@
                     <div class="card-content">
                         <div class="card-icon"><i data-lucide="shopping-cart"></i></div>
                         <p>Orders Today</p>
-                        <h3>320</h3>
+                        <h3 id="orders-today">0</h3>
                         <span class="trend down"><i data-lucide="trending-down"></i> -5%</span>
                     </div>
                     <div class="card-chart" id="chart-orders"></div>
@@ -102,7 +102,7 @@
                     <div class="card-content">
                         <div class="card-icon"><i data-lucide="dollar-sign"></i></div>
                         <p>Revenue</p>
-                        <h3>$8,450</h3>
+                        <h3 id="revenue">0</h3>
                         <span class="trend up"><i data-lucide="trending-up"></i> +8%</span>
                     </div>
                     <div class="card-chart" id="chart-revenue"></div>
@@ -112,7 +112,7 @@
                     <div class="card-content">
                         <div class="card-icon"><i data-lucide="activity"></i></div>
                         <p>Active Sessions</p>
-                        <h3>560</h3>
+                        <h3 id="active-sessions">0</h3>
                         <span class="trend up"><i data-lucide="trending-up"></i> +3%</span>
                     </div>
                     <div class="card-chart" id="chart-sessions"></div>
@@ -124,6 +124,28 @@
 
     <script>
         lucide.createIcons(); // icons
+    </script>
+    <script>
+        function animateCounter(id, end) {
+            let el = document.getElementById(id);
+            let start = 0;
+            let step = Math.ceil(end / 100);
+            let interval = setInterval(() => {
+                start += step;
+                if (start >= end) {
+                    el.textContent = end.toLocaleString();
+                    clearInterval(interval);
+                } else {
+                    el.textContent = start.toLocaleString();
+                }
+            }, 20);
+        }
+
+        animateCounter("total-users", 1250);
+        animateCounter("orders-today", 320);
+        animateCounter("revenue", 8450);
+        animateCounter("active-sessions", 560);
+
     </script>
     <script>
         // Users

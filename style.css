@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #f4f7fd;
+  background: linear-gradient(135deg, #f9f9f9 0%, #f3f7fa 100%);
   color: #333;
 }
 
@@ -65,6 +65,7 @@ body {
   stroke-width: 1.8;
   color: #777;
 }
+
 .sidebar nav a.active i {
   color: #2196f3;
 }
@@ -180,6 +181,9 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -225,6 +229,16 @@ body {
 .card.green { border-left: 5px solid #4caf50; color: #4caf50; }
 .card.purple { border-left: 5px solid #9c27b0; color: #9c27b0; }
 
+/* Optional card extras */
+.card-content {
+    flex: 1;
+}
+
+.card-chart {
+    width: 120px;
+    height: 70px;
+}
+
 /* Responsive Layout */
 @media (max-width: 900px) {
   .dashboard { grid-template-columns: 1fr; }
@@ -239,4 +253,3 @@ body {
   .search-bar { flex-direction: column; gap: 10px; }
   .search-bar button { width: 100%; }
 }
-
